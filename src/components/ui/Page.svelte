@@ -1,27 +1,27 @@
 <svelte:head>
-  <title>{title} | WCAG-EM Report Tool</title>
+  <title>{title} | Absa Report Tool</title>
 </svelte:head>
 
 <div class="page-content" id="{pageid}">
-{#if needsPanelSpace}
-  <div class="default-grid">
-    <main class="main-with-panel">
-      <h1>{title}</h1>
-      <slot />
-    </main>
-    <YourReport />
-  </div>
-{:else}
-  <div class="default-grid">
-    <main class="main-without-panel">
-      {#if !isViewReport && !isOverview && !isAcknowledgements}
+  {#if needsPanelSpace}
+    <div class="default-grid">
+      <main class="main-with-panel">
+        <h1>{title}</h1>
+        <slot />
+      </main>
       <YourReport />
-      {/if}
-      <h1>{title}</h1>
-      <slot />
-    </main>
-  </div>
-{/if}
+    </div>
+  {:else}
+    <div class="default-grid">
+      <main class="main-without-panel">
+        {#if !isViewReport && !isOverview && !isAcknowledgements}
+          <YourReport />
+        {/if}
+        <h1>{title}</h1>
+        <slot />
+      </main>
+    </div>
+  {/if}
 </div>
 
 <style>
@@ -40,7 +40,7 @@
 </style>
 
 <script>
-  import { onMount } from "svelte";
+  import { onMount } from 'svelte';
   import { useLocation } from 'svelte-navigator';
   import { honourFragmentIdLinks } from '@app/scripts/honourFragmentIdLinks.js';
 
@@ -55,7 +55,8 @@
   $: isViewReport = $location.pathname === $routes.VIEW_REPORT.path;
   $: isOverview = $location.pathname === $routes.OVERVIEW.path;
   $: isAcknowledgements = $location.pathname === $routes.ACKNOWLEDGEMENTS.path;
-  $: needsPanelSpace = !isViewReport && !isOverview && !isAcknowledgements && $yourReportPanelOpen;
+  $: needsPanelSpace =
+    !isViewReport && !isOverview && !isAcknowledgements && $yourReportPanelOpen;
 
   onMount(() => {
     setTimeout(honourFragmentIdLinks($location), 100);

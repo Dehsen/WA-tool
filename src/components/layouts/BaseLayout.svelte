@@ -1,16 +1,18 @@
 <!-- @Layout:Base -->
+<!--
 <div class="Controls default-grid">
   <LanguageSelect locales="{locales}" />
 </div>
-
+-->
 <div id="site-header" class="site-header">
   <div class="default-grid">
     <div class="tool-header">
       <div class="tool-header-name">
-        WCAG-EM R<span class="display-phablet">eport </span>T<span class="display-phablet">ool</span>
+        Absa R<span class="display-phablet">eport </span>T<span class="display-phablet">ool</span>
       </div>
+      <!--
       <div class="tool-header-logo">
-        <a href="http://w3.org/"><img
+         <a href="http://w3.org/"><img
             alt="W3C"
             src={`${$basepath}/images/w3c.svg`}
             width="50"
@@ -21,8 +23,9 @@
             src={`${$basepath}/images/wai.svg`}
             width="90"
             height="24"
-          /></a>
+          /></a> */
       </div>
+      -->
     </div>
   </div>
 </div>
